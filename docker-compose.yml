@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./:/usr/share/nginx/html
+    ports:
+      - "7000:80"
+    restart: unless-stopped
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token eyJhIjoiZDcyMTg2N2E2YjhhYWM0ZjI0ZDRjN2ZmOTc2ZTY3ZDIiLCJ0IjoiOTkwZjliNDEtZTIxOS00NjlkLTljMmUtMDM2NTY4NjAxNDNiIiwicyI6Ik5XRTBZMkZrWVRBdE9HUXpOQzAwTWpJd0xXRmpOV0l0TUdOa01HWTVNVEUzTTJObE5XSXlNek0zTTJFdFlXRTRaaTAwTVRBNUxXRmtNbVl0TkdVNE5UUmtZVEUzT1RFeSJ9    
+    restart: unless-stopped
+    depends_on:
+      - web
