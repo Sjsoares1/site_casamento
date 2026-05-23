@@ -27,19 +27,23 @@ app.post("/rsvp", async (req, res) => {
     const sheetRows = [];
 
     if (dados.presenca === 'Sim') {
-      sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": dados.nome, "Telefone": telefoneStr });
-      
+      // Adiciona o Titular
+      sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": dados.nome, "Identificacao": "Titular", "Telefone": telefoneStr });
+
+      // Adiciona os Acompanhantes
       const acomp = Object.entries(dados)
         .filter(([k]) => k.startsWith("acompanhante_"))
         .map(([, v]) => v).filter(Boolean);
-      acomp.forEach(c => sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": c, "Telefone": telefoneStr }));
+      acomp.forEach(c => sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": c, "Identificacao": "Acompanhante", "Telefone": telefoneStr }));
 
+      // Adiciona as Crianças
       const crian = Object.entries(dados)
         .filter(([k]) => k.startsWith("crianca_"))
         .map(([, v]) => v).filter(Boolean);
-      crian.forEach(c => sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": c, "Telefone": telefoneStr }));
+      crian.forEach(c => sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": c, "Identificacao": "Criança", "Telefone": telefoneStr }));
     } else {
-      sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": dados.nome + " (Ausente)", "Telefone": telefoneStr });
+      // Caso não vá comparecer
+      sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": dados.nome + " (Ausente)", "Identificacao": "Titular", "Telefone": telefoneStr });
     }
 
     const sheetRes = await fetch(process.env.SHEETDB_URL, {

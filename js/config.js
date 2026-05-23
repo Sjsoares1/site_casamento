@@ -4,5 +4,5 @@ const CONFIG = {
 
   whatsappNumber: "5532988476779",
 
-  waFloatMessage: "Olá! Tenho uma dúvida sobre o casamento de Thaynara e Sylvio.",
+  waFloatMessage: "Olá! Tenho uma dúvida sobre o casamento de Thaynara e Francismar.",
 };

@@ -13,7 +13,7 @@ No final do arquivo, na linha 605, há o objeto `CONFIG` que controla o destino 
     *   **O que fazer**: Substituir pelo número real de WhatsApp que receberá as mensagens (código do país + DDD + número).
 
 ## 2. Personalização dos Textos
-Os textos atuais do site são exemplos (Isabella e Rafael). Procure no arquivo HTML por esses trechos e substitua com os dados reais do evento:
+Os textos atuais do site são exemplos (thaynara e Francismar). Procure no arquivo HTML por esses trechos e substitua com os dados reais do evento:
 
 *   **Nomes**: Linha 6 (`<title>`), linha 460 (`<h1 class="hero-names">`), linha 591 (Rodapé), linha 615 (`waFloatMessage`).
 *   **Data e Local**: Linha 458 (`<p class="label-date">14 de Março de 2026 · São Paulo</p>`).

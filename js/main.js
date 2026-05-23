@@ -108,7 +108,7 @@ form.addEventListener('submit', async (e) => {
   if (presenca === 'Sim') {
     sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": nome, "Identificacao": "Titular", "Telefone": telefoneStr });
     companions.forEach(c => sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": c, "Identificacao": "Acompanhante", "Telefone": telefoneStr }));
-    children.forEach(c => sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": c, "Identificacao": "Crianças", "Telefone": telefoneStr }));
+    children.forEach(c => sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": c, "Identificacao": "Criança", "Telefone": telefoneStr }));
   } else {
     sheetRows.push({ "Data/Hora": dataHora, "Nome Completo": nome + " (Ausente)", "Identificacao": "Titular", "Telefone": telefoneStr });
   }
